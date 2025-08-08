@@ -1,19 +1,17 @@
-package com.github.lipenathan.demo.model;
+package com.github.lipenathan.demo;
 
 public class Usuario {
-    private int id;
     private String nome;
     private String email;
-    private String senha;
     private String dataNascimento;
 
-    public int getId() {
-        return id;
+    public Usuario(String nome, String email, String dataNascimento) {
+        this.nome = nome;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+    public Usuario() {}
 
     public String getNome() {
         return nome;
@@ -31,14 +29,6 @@ public class Usuario {
         this.email = email;
     }
 
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
     public String getDataNascimento() {
         return dataNascimento;
     }
@@ -52,7 +42,6 @@ public class Usuario {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +
                 '}';
     }
