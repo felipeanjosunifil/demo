@@ -11,8 +11,6 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public Usuario() {}
-
     public String getNome() {
         return nome;
     }
