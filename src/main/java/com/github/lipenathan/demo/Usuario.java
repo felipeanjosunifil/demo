@@ -1,6 +1,7 @@
 package com.github.lipenathan.demo;
 
 public class Usuario {
+    private int id;
     private String nome;
     private String email;
     private String dataNascimento;
@@ -33,6 +34,14 @@ public class Usuario {
 
     public void setDataNascimento(String dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     @Override
