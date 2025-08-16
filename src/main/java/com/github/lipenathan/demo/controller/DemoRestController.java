@@ -1,9 +1,6 @@
-package com.github.lipenathan.demo;
+package com.github.lipenathan.demo.controller;
 
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @RestController
 public class DemoRestController {
