@@ -1,6 +1,13 @@
-package com.github.lipenathan.demo.model;
+package com.github.lipenathan.demo.model.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
     private String email;

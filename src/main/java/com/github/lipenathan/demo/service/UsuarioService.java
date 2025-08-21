@@ -1,17 +1,21 @@
-package com.github.lipenathan.demo.business;
+package com.github.lipenathan.demo.service;
 
 import com.github.lipenathan.demo.model.RepositorioUsuario;
-import com.github.lipenathan.demo.model.Usuario;
+import com.github.lipenathan.demo.model.entity.Usuario;
+import com.github.lipenathan.demo.model.repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class UsuarioProcessos {
+public class UsuarioService {
 
-    private final RepositorioUsuario repositorio;
+    private final UsuarioRepository repositorio;
 
-    public UsuarioProcessos(RepositorioUsuario repositorio) {
+    @Autowired
+    public UsuarioService(UsuarioRepository repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -26,22 +30,25 @@ public class UsuarioProcessos {
         if (usuario.getSenha().isEmpty() || usuario.getSenha() == null) {
             throw new Exception("A senha do usuário não pode ser vazia");
         }
-        repositorio.criarNovoUsuario(usuario);
+        repositorio.save(usuario);
     }
 
     public List<Usuario> todos() {
-        return repositorio.buscarTodos();
+        ArrayList<Usuario> list = new ArrayList<>();
+        Iterable<Usuario> result = repositorio.findAll();
+        result.forEach(list::add);
+        return list;
     }
 
     public Boolean apagar() {
-        return repositorio.apagarTodos();
+        return false;
     }
 
     public Boolean apagarPorId(int id) {
-        return repositorio.apagarPorId(id);
+        return false;
     }
 
     public List<Usuario> buscar(String nome, String email) {
-        return repositorio.buscar(nome, email);
+        return new ArrayList<>();
     }
 }

@@ -1,7 +1,7 @@
 package com.github.lipenathan.demo.controller;
 
-import com.github.lipenathan.demo.business.UsuarioProcessos;
-import com.github.lipenathan.demo.model.Usuario;
+import com.github.lipenathan.demo.service.UsuarioService;
+import com.github.lipenathan.demo.model.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,10 +11,10 @@ import java.util.List;
 @RequestMapping("usuarios/")
 public class UsuarioController {
 
-    private final UsuarioProcessos processos;
+    private final UsuarioService processos;
 
     @Autowired
-    public UsuarioController(UsuarioProcessos processos) {
+    public UsuarioController(UsuarioService processos) {
         this.processos = processos;
     }
 

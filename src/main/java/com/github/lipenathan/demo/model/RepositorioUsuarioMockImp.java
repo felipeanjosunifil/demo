@@ -1,5 +1,6 @@
 package com.github.lipenathan.demo.model;
 
+import com.github.lipenathan.demo.model.entity.Usuario;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

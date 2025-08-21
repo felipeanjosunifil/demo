@@ -1,5 +1,7 @@
 package com.github.lipenathan.demo.model;
 
+import com.github.lipenathan.demo.model.entity.Usuario;
+
 import java.util.List;
 
 /**
