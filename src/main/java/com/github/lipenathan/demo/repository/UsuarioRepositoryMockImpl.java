@@ -1,16 +1,18 @@
 package com.github.lipenathan.demo.repository;
 
-import com.github.lipenathan.demo.Usuario;
+import com.github.lipenathan.demo.repository.entity.Usuario;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockRepository {
+@Repository
+public class UsuarioRepositoryMockImpl {
 
     static List<Usuario> usuarios = new ArrayList<>();
     private int ID = 0;
 
-    public void adicionarUSuario(Usuario usuario) {
+    public void adicionarUsuario(Usuario usuario) {
         usuario.setId(++ID);
         usuarios.add(usuario);
     }
