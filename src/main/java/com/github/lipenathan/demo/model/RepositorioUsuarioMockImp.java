@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public class RepositorioUsuarioMockImp implements RepositorioUsuario {
     private List<Usuario> TODOS_USUARIOS = new ArrayList<>();
-    private int ID_USUARIO = 0;
+    private Long ID_USUARIO = 0L;
 
     //region implementação do métodos
 

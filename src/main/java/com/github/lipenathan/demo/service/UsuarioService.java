@@ -30,6 +30,7 @@ public class UsuarioService {
         if (usuario.getSenha().isEmpty() || usuario.getSenha() == null) {
             throw new Exception("A senha do usuário não pode ser vazia");
         }
+
         repositorio.save(usuario);
     }
 
