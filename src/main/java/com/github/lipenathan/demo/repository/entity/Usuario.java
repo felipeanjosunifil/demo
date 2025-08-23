@@ -1,4 +1,4 @@
-package com.github.lipenathan.demo;
+package com.github.lipenathan.demo.repository.entity;
 
 public class Usuario {
     private int id;
