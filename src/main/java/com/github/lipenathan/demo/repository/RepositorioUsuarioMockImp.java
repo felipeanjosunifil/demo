@@ -1,6 +1,6 @@
-package com.github.lipenathan.demo.model;
+package com.github.lipenathan.demo.repository;
 
-import com.github.lipenathan.demo.model.entity.Usuario;
+import com.github.lipenathan.demo.repository.entity.Usuario;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -10,7 +10,7 @@ import java.util.List;
  * Componente responsável por implementar contratos de reposítório de usuário de forma estática.
  */
 @Repository
-public class RepositorioUsuarioMockImp implements RepositorioUsuario {
+public class RepositorioUsuarioMockImp {
     private List<Usuario> TODOS_USUARIOS = new ArrayList<>();
     private Long ID_USUARIO = 0L;
 
@@ -45,7 +45,7 @@ public class RepositorioUsuarioMockImp implements RepositorioUsuario {
 
     public List<Usuario> buscar(String nome, String email) {
         return TODOS_USUARIOS.stream().filter(usuario ->
-                usuario.getNome().contains(nome) || usuario.getEmail().contains(email)).toList();
+                usuario.getNome().contains(nome)).toList();
     }
 
     //endregion

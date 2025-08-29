@@ -1,7 +1,7 @@
 package com.github.lipenathan.demo.controller;
 
 import com.github.lipenathan.demo.service.UsuarioService;
-import com.github.lipenathan.demo.model.entity.Usuario;
+import com.github.lipenathan.demo.repository.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

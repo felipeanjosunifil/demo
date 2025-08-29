@@ -1,8 +1,7 @@
 package com.github.lipenathan.demo.service;
 
-import com.github.lipenathan.demo.model.RepositorioUsuario;
-import com.github.lipenathan.demo.model.entity.Usuario;
-import com.github.lipenathan.demo.model.repository.UsuarioRepository;
+import com.github.lipenathan.demo.repository.entity.Usuario;
+import com.github.lipenathan.demo.repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +22,6 @@ public class UsuarioService {
 
         if (usuario.getNome().isEmpty() || usuario.getNome() == null) {
             throw new Exception("O nome do usuário não pode ser vazio");
-        }
-        if (usuario.getEmail().isEmpty() || usuario.getEmail() == null) {
-            throw new Exception("O e-mail do usuário não pode ser vazio");
         }
         if (usuario.getSenha().isEmpty() || usuario.getSenha() == null) {
             throw new Exception("A senha do usuário não pode ser vazia");
