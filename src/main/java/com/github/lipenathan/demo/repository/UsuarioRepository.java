@@ -1,13 +1,9 @@
 package com.github.lipenathan.demo.repository;
 
 import com.github.lipenathan.demo.repository.entity.Usuario;
+import org.springframework.data.repository.CrudRepository;
 
-import java.util.List;
+public interface UsuarioRepository extends CrudRepository<Usuario, Long> {
 
-public interface UsuarioRepository {
-    void adicionarUsuario(Usuario usuario);
-
-    List<Usuario> getUsuarios();
-
-    boolean apagarUsuario(int id);
+    public Usuario findByEmail(String email);
 }

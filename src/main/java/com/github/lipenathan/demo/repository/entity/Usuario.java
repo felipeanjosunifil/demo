@@ -1,7 +1,14 @@
 package com.github.lipenathan.demo.repository.entity;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuarios")
 public class Usuario {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String nome;
     private String email;
     private String dataNascimento;
@@ -38,11 +45,11 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

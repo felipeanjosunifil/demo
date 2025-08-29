@@ -13,7 +13,6 @@ public class UsuarioRepositoryMockImpl {
     private int ID = 0;
 
     public void adicionarUsuario(Usuario usuario) {
-        usuario.setId(++ID);
         usuarios.add(usuario);
     }
 

@@ -1,19 +1,20 @@
 package com.github.lipenathan.demo.service;
 
-import com.github.lipenathan.demo.repository.UsuarioRepositoryMockImpl;
+import com.github.lipenathan.demo.repository.UsuarioRepository;
 import com.github.lipenathan.demo.repository.entity.Usuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UsuarioServiceImpl {
 
-    private UsuarioRepositoryMockImpl repositorio;
+    private UsuarioRepository repositorio;
 
     @Autowired
-    public UsuarioServiceImpl(UsuarioRepositoryMockImpl repositorio) {
+    public UsuarioServiceImpl(UsuarioRepository repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -27,10 +28,22 @@ public class UsuarioServiceImpl {
         if (usuario.getDataNascimento().isEmpty()) {
             throw new Exception("Data de nascimento não pode ser vazia");
         }
-        repositorio.adicionarUsuario(usuario);
+        repositorio.save(usuario);
     }
 
     public List<Usuario> listarUsuarios() {
-        return repositorio.getUsuarios();
+        ArrayList<Usuario> list = new ArrayList<>();
+        Iterable<Usuario> result = repositorio.findAll();
+        result.forEach(list::add);
+        return list;
+    }
+
+    public Boolean apagarPeloId(Long id) {
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

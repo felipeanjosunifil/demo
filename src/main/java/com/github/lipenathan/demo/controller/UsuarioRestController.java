@@ -1,6 +1,5 @@
 package com.github.lipenathan.demo.controller;
 
-import com.github.lipenathan.demo.repository.UsuarioRepositoryMockImpl;
 import com.github.lipenathan.demo.repository.entity.Usuario;
 import com.github.lipenathan.demo.service.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +29,7 @@ public class UsuarioRestController {
     }
 
     @DeleteMapping("apagar/{id}")
-    public Boolean apagarUSuario(@PathVariable int id) {
-       return false;
+    public Boolean apagarUSuario(@PathVariable Long id) {
+       return servico.apagarPeloId(id);
     }
 }
