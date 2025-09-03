@@ -9,7 +9,7 @@ import java.util.List;
 @Repository
 public class UsuarioMockRepository {
     private List<Usuario> usuarios = new ArrayList<>();
-    private int ID = 0;
+    private Long ID = 0L;
 
     public void salvarUsuario(Usuario usuario) {
         usuario.setId(++ID);

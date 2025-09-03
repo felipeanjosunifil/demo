@@ -1,19 +1,20 @@
 package com.github.lipenathan.demo.service;
 
+import com.github.lipenathan.demo.repository.UsuarioRepository;
 import com.github.lipenathan.demo.repository.entity.Usuario;
-import com.github.lipenathan.demo.repository.UsuarioMockRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class UsuarioService {
 
-    private UsuarioMockRepository repositorio;
+    private UsuarioRepository repositorio;
 
     @Autowired
-    public UsuarioService(UsuarioMockRepository repositorio) {
+    public UsuarioService(UsuarioRepository repositorio) {
         this.repositorio = repositorio;
     }
 
@@ -21,18 +22,24 @@ public class UsuarioService {
         if (usuario.getNome().isEmpty()) {
             throw new Exception("Nome não pode ser vazio");
         }
-        if (usuario.getEmail().isEmpty()) {
-            throw new Exception("E-mail não pode ser vazio");
-        }
 
-        repositorio.salvarUsuario(usuario);
+        repositorio.save(usuario);
     }
 
     public List<Usuario> buscarTodosUsuarios() {
-        return repositorio.buscarTodosUsuarios();
+        List<Usuario> usuarios = new ArrayList<>();
+        Iterable<Usuario> result = repositorio.findAll();
+
+        result.forEach(usuarios::add);
+        return usuarios;
     }
 
-    public boolean apagarUsuarioPorId(Integer id) {
-        return repositorio.apagarUsuarioPorId(id);
+    public boolean apagarUsuarioPorId(Long id) {
+        try {
+            repositorio.deleteById(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 }

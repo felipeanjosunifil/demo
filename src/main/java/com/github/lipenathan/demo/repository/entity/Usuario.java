@@ -1,16 +1,32 @@
 package com.github.lipenathan.demo.repository.entity;
 
-public class Usuario {
-    private int id;
-    private String nome;
-    private String email;
-    private String dataNascimento;
+import jakarta.persistence.*;
 
-    public Usuario(String nome, String email, String dataNascimento) {
+import java.util.List;
+
+@Entity
+@Table(name = "usuarios")
+public class Usuario {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+    private String nome;
+    private String dataNascimento;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "documento_id")
+    private DocumetoIdentificacao documento;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "usuario_id")
+    private List<Contato> contatos;
+
+    public Usuario(Long id, String nome, String dataNascimento) {
+        this.id = id;
         this.nome = nome;
-        this.email = email;
         this.dataNascimento = dataNascimento;
     }
+
+    public Usuario() {}
 
     public String getNome() {
         return nome;
@@ -18,14 +34,6 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getDataNascimento() {
@@ -36,19 +44,34 @@ public class Usuario {
         this.dataNascimento = dataNascimento;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public DocumetoIdentificacao getDocumento() {
+        return documento;
+    }
+
+    public void setDocumento(DocumetoIdentificacao documento) {
+        this.documento = documento;
+    }
+
+    public List<Contato> getContatos() {
+        return contatos;
+    }
+
+    public void setContatos(List<Contato> contatos) {
+        this.contatos = contatos;
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
                 ", dataNascimento='" + dataNascimento + '\'' +
                 '}';
     }
