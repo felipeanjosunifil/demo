@@ -22,9 +22,6 @@ public class UsuarioServiceImpl {
         if (usuario.getNome().isEmpty()) {
             throw new Exception("Nome não pode ser vazio");
         }
-        if (usuario.getEmail().isEmpty()) {
-            throw new Exception("E-mail não pode ser vazio");
-        }
         if (usuario.getDataNascimento().isEmpty()) {
             throw new Exception("Data de nascimento não pode ser vazia");
         }
